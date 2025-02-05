@@ -42,6 +42,28 @@ html {
         height: auto;
     }
 }
+/* Đảm bảo rằng thanh tìm kiếm không bị lệch */
+.search-bar {
+    width: 100%; /* Giúp thanh tìm kiếm chiếm hết chiều rộng của màn hình */
+    padding: 10px;
+    box-sizing: border-box; /* Đảm bảo padding không làm rộng thêm phần tử */
+    margin: 0 auto; /* Đặt margin auto để căn giữa */
+    display: flex; /* Dùng flexbox để căn giữa nếu cần */
+    justify-content: space-between; /* Căn đều các phần tử bên trong */
+    align-items: center;
+}
+
+/* Media query cho màn hình nhỏ */
+@media only screen and (max-width: 767px) {
+    .search-bar {
+        padding: 10px; /* Tối ưu padding cho điện thoại */
+    }
+    .search-bar input {
+        width: 100%; /* Đảm bảo input chiếm hết chiều rộng */
+        padding: 10px;
+        font-size: 14px;
+    }
+}
 
 
 
