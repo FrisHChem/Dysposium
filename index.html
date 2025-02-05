@@ -6,8 +6,38 @@
     <title>Tiệm tinh thể Dysposium</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
+        /* Mặc định: kiểu cho màn hình lớn */
+body {
+    font-size: 16px;
+}
+
+/* Media query cho màn hình nhỏ (điện thoại) */
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 14px; /* Giảm kích thước font cho điện thoại */
+    }
+
+    .container {
+        padding: 10px; /* Điều chỉnh padding cho màn hình nhỏ */
+    }
+}
+/* Công thức hóa học mặc định */
+.chemical-formula {
+    font-size: 18px;
+}
+
+/* Điều chỉnh công thức hóa học cho điện thoại */
+@media only screen and (max-width: 768px) {
+    .chemical-formula {
+        font-size: 16px; /* Giảm kích thước font cho công thức trên điện thoại */
+    }
+}
+
+
         /* Thêm các kiểu tùy chỉnh nếu cần */
     </style>
+
+    
 </head>
 <body class="bg-gray-100">
     <!-- Header -->
@@ -26,8 +56,8 @@
         <div class="flex gap-4 mb-4">
             <select id="category" class="p-2 border rounded">
                 <option value="all">Tất cả</option>
-                <option value="fashion">Tinh Thể</option>
-                <option value="shoes">Dụng Cụ</option>
+                <option value="Tinh Thể">Tinh Thể</option>
+                <option value="Dụng Cụ">Dụng Cụ</option>
             </select>
         </div>
 
