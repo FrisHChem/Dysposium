@@ -7,31 +7,42 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         /* Mặc định: kiểu cho màn hình lớn */
-body {
-    font-size: 16px;
+/* Đảm bảo rằng trang sẽ tự động thu gọn theo chiều rộng của màn hình */
+html {
+    font-size: 16px; /* Thiết lập kích thước font chuẩn */
 }
 
-/* Media query cho màn hình nhỏ (điện thoại) */
-@media only screen and (max-width: 768px) {
+/* Media query cho các thiết bị có màn hình nhỏ (từ điện thoại trở xuống) */
+@media only screen and (max-width: 767px) {
     body {
-        font-size: 14px; /* Giảm kích thước font cho điện thoại */
+        font-size: 14px; /* Giảm kích thước font cho màn hình nhỏ */
+        line-height: 1.5;
     }
 
+    /* Làm cho container tự động co giãn và dễ đọc */
     .container {
-        padding: 10px; /* Điều chỉnh padding cho màn hình nhỏ */
+        padding: 15px;
+        width: 100%;
     }
-}
-/* Công thức hóa học mặc định */
-.chemical-formula {
-    font-size: 18px;
+
+    /* Điều chỉnh công thức hóa học cho dễ đọc trên điện thoại */
+    .chemical-formula {
+        font-size: 18px; /* Giảm kích thước công thức để vừa màn hình */
+        line-height: 1.6;
+    }
+
+    /* Thêm khoảng cách giữa các phần tử */
+    .section {
+        margin-bottom: 15px;
+    }
+
+    /* Thực hiện điều chỉnh cho hình ảnh để vừa vặn với màn hình */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
-/* Điều chỉnh công thức hóa học cho điện thoại */
-@media only screen and (max-width: 768px) {
-    .chemical-formula {
-        font-size: 16px; /* Giảm kích thước font cho công thức trên điện thoại */
-    }
-}
 
 
         /* Thêm các kiểu tùy chỉnh nếu cần */
