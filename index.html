@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiệm Tinh Thể Của Duy</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Thêm các kiểu tùy chỉnh nếu cần */
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="max-w-screen-xl mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="text-2xl font-semibold text-blue-500">Cửa Hàng</div>
+            <div class="flex items-center space-x-4">
+                <input id="search" type="text" placeholder="Tìm kiếm sản phẩm..." class="p-2 border rounded w-96">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded">Tìm kiếm</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4">
+        <div class="flex gap-4 mb-4">
+            <select id="category" class="p-2 border rounded">
+                <option value="all">Tất cả</option>
+                <option value="fashion">Tinh Thể</option>
+                <option value="shoes">Dụng Cụ</option>
+            </select>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="products" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-md mt-10 p-4 text-center">
+        <p>&copy; Code bởi Fris.</p>
+    </footer>
+
+    <script>
+        const products = [
+            { id: 1, name: "NaMg", price: 55000, image: "https://i.postimg.cc/mgWN6fdH/Screenshot-8.jpg", category: "Tinh Thể" },
+        ];
+
+        function renderProducts() {
+            const searchTerm = document.getElementById("search").value.toLowerCase();
+            const category = document.getElementById("category").value;
+            const productContainer = document.getElementById("products");
+            productContainer.innerHTML = "";
+
+            products.filter(p => p.name.toLowerCase().includes(searchTerm) && (category === "all" || p.category === category)).forEach(product => {
+                const productCard = document.createElement("div");
+                productCard.classList.add("bg-white", "rounded-lg", "shadow-lg", "p-4");
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover mb-4 rounded">
+                    <h2 class="text-lg font-semibold text-center">${product.name}</h2>
+                    <p class="text-gray-700 text-center">${product.price.toLocaleString()} VND</p>
+                 
+                `;
+                productContainer.appendChild(productCard);
+            });
+        }
+
+        document.getElementById("search").addEventListener("input", renderProducts);
+        document.getElementById("category").addEventListener("change", renderProducts);
+
+        renderProducts();
+    </script>
+</body>
+</html>
